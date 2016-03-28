@@ -1,0 +1,33 @@
+{
+  "name": "rollodeqc-gh-utils",
+  "version": "0.0.0",
+  "description": "My well-made module",
+  "license": "MIT",
+  "repository": "millette/rollodeqc-gh-utils",
+  "author": {
+    "name": "Robin Millette",
+    "email": "robin@millette.info",
+    "url": "robin.millette.info"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "standard && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.12.0",
+    "babel-eslint": "^6.0.0",
+    "standard": "^6.0.8"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
