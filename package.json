@@ -1,6 +1,6 @@
 {
   "name": "rollodeqc-gh-utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "My well-made module",
   "license": "MIT",
   "repository": "millette/rollodeqc-gh-utils",
@@ -10,7 +10,7 @@
     "url": "robin.millette.info"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.3.1"
   },
   "scripts": {
     "test": "standard && ava"
@@ -19,9 +19,15 @@
     "index.js"
   ],
   "keywords": [
-    ""
+    "rollodeqc",
+    "github",
+    "gh",
+    "utils"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "gh-got": "^2.4.0",
+    "lodash.pickby": "^4.2.1"
+  },
   "devDependencies": {
     "ava": "^0.12.0",
     "babel-eslint": "^6.0.0",

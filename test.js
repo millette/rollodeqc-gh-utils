@@ -1,7 +1,11 @@
+/*eslint arrow-parens: [2, "as-needed"]*/
+
 'use strict'
 import test from 'ava'
 import fn from './'
 
-test('title', (t) => {
-  t.is(fn('unicorns'), 'unicorns & rainbows')
+test('rate limit', async t => {
+  const result = await fn.rateLimit()
+  t.is(result.headers.statusCode, 200)
+  t.is(result.rate.limit, 5000)
 })
