@@ -62,16 +62,16 @@ exports.rateLimit = () => exports.got('rate_limit')
     return result
   })
 
-exports.links = (r) => {
-  if (!r.headers || !r.headers.link || r.headers.link.indexOf(', ') === -1) { return false }
+exports.links = (result) => {
+  if (!result.headers || !result.headers.link || result.headers.link.indexOf(', ') === -1) { return false }
   const links = {}
-  r.headers.link.split(', ')
+  result.headers.link.split(', ')
     .map((i) => i.split('; rel=').map((j) => j.slice(1, -1)))
     .forEach((i) => { links[i[1]] = i[0] })
   return links
 }
 
-exports.wait = (r) => (r.headers && r.headers['x-ratelimit-reset'])
-  ? (1000 * r.headers['x-ratelimit-reset'] - Date.now()) /
-    r.headers['x-ratelimit-remaining']
+exports.wait = (result) => (result.headers && result.headers['x-ratelimit-reset'])
+  ? (1000 * result.headers['x-ratelimit-reset'] - Date.now()) /
+    result.headers['x-ratelimit-remaining']
   : 2000
