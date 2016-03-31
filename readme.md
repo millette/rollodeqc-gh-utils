@@ -1,6 +1,6 @@
-# rollodeqc-gh-utils [![Build Status](https://travis-ci.org/millette/rollodeqc-gh-utils.svg?branch=master)](https://travis-ci.org/millette/rollodeqc-gh-utils)
+# rollodeqc-gh-utils
 
-> My well-made module
+> RoLLodeQc GitHub utilities
 
 
 ## Install
@@ -15,28 +15,46 @@ $ npm install --save rollodeqc-gh-utils
 ```js
 const rollodeqcGhUtils = require('rollodeqc-gh-utils');
 
-rollodeqcGhUtils('unicorns');
-//=> 'unicorns & rainbows'
+rollodeqcGhUtils.rateLimit().then((result) => {
+  console.log(JSON.stringify(result, null, ' '))
+})
+//=>
+{
+ "rate": {
+  "limit": 5000,
+  "remaining": 5000,
+  "reset": 1459470151
+ },
+ "headers": {
+  "server": "GitHub.com",
+  "date": "Thu, 31 Mar 2016 23:22:31 GMT",
+  "status": "200 OK",
+  "x-ratelimit-limit": 5000,
+  "x-ratelimit-remaining": 5000,
+  "x-ratelimit-reset": 1459470151,
+  "timestamp": 1459466551,
+  "timestampDiff": 2.87,
+  "statusCode": 200
+ }
+}
 ```
-
 
 ## API
 
-### rollodeqcGhUtils(input, [options])
-### exports.got = (url, obj) => ghGot(url, obj)
+### rollodeqcGhUtils.got(url[, obj])
 
-#### input
+#### url
 
 Type: `string`
 
 Lorem ipsum.
 
-#### options
+#### obj
 
 ##### foo
 
-Type: `boolean`<br>
-Default: `false`
+Type: `object`<br>
+Default: `{}`
 
 Lorem ipsum.
 
@@ -95,12 +113,11 @@ Default: `false`
 Lorem ipsum.
 
 ## Dependencies
-* const ghGot = require('gh-got')
-* const pickBy = require('lodash.pickby')
-* const flow = require('lodash.flow')
-* const partial = require('lodash.partial')
-
+* gh-got
+* lodash.pickby
+* lodash.flow
+* lodash.partial
 
 ## License
 
-MIT © [Robin Millette](http://robin.millette.info)
+AGPL-v3 © [Robin Millette](http://robin.millette.info)
