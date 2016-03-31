@@ -1,3 +1,22 @@
+/*
+<one line to give the program's name and a brief idea of what it does.>
+Copyright 2016 Robin Millette <http://robin.millette.info/>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the
+[GNU Affero General Public License](LICENSE.md)
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 'use strict'
 
 // npm
@@ -41,3 +60,17 @@ exports.rateLimit = () => exports.got('rate_limit')
     delete result.resources
     return result
   })
+
+exports.links = (r) => {
+  if (!r.headers || !r.headers.link || r.headers.link.indexOf(', ') === -1) { return false }
+  const links = {}
+  r.headers.link.split(', ')
+    .map((i) => i.split('; rel=').map((j) => j.slice(1, -1)))
+    .forEach((i) => { links[i[1]] = i[0] })
+  return links
+}
+
+exports.wait = (r) => (r.headers && r.headers['x-ratelimit-reset'])
+  ? (1000 * r.headers['x-ratelimit-reset'] - Date.now()) /
+    r.headers['x-ratelimit-remaining']
+  : 2000
