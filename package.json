@@ -1,9 +1,10 @@
 {
   "name": "rollodeqc-gh-utils",
-  "version": "0.1.0",
-  "description": "RoLLodeQc GitHub utilities",
+  "version": "0.2.0",
+  "description": "RoLLodeQc GitHub utilities.",
   "license": "AGPL-3.0",
   "repository": "millette/rollodeqc-gh-utils",
+  "readme": "readme.md",
   "author": {
     "name": "Robin Millette",
     "email": "robin@millette.info",

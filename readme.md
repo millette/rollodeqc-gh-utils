@@ -1,5 +1,5 @@
 # rollodeqc-gh-utils
-> RoLLodeQc GitHub utilities
+> RoLLodeQc GitHub utilities.
 
 ## Install
 ```
@@ -8,7 +8,7 @@ $ npm install --save rollodeqc-gh-utils
 
 ## Usage
 ```js
-const rollodeqcGhUtils = require('rollodeqc-gh-utils');
+const rollodeqcGhUtils = require('rollodeqc-gh-utils')
 
 rollodeqcGhUtils.rateLimit().then((result) => {
   console.log(JSON.stringify(result, null, ' '))
@@ -36,36 +36,36 @@ rollodeqcGhUtils.rateLimit().then((result) => {
 
 ## API
 ### rollodeqcGhUtils.got(url[, obj])
-#### url
-Type: `string`
-
 Fetch json documents from GitHub.
 Like [ghGot](https://github.com/sindresorhus/gh-got)
 with a little sugar added. Only some headers are kept and parsed.
 
 Returns a promise.
 
+#### url
+Type: `string`
+
 #### obj
 Type: `object`<br>
 Default: `{}`
 
 See ghGot. Good for token, etc.
+Note that the token can be overridden globally with the `GITHUB_TOKEN` environment variable.
 
 ### rollodeqcGhUtils.rateLimit()
-
 Fetch current rate limit and return a promise.
 
 ### rollodeqcGhUtils.links(result)
-#### result
-Type: `object`
-
 Parses result.headers.link and returns an object with next, previous and last links.
 
-### rollodeqcGhUtils.wait(result)
 #### result
 Type: `object`
 
+### rollodeqcGhUtils.wait(result)
 Return time to wait (in ms) between calls to got() to respect the rate limit.
+
+#### result
+Type: `object`
 
 ## Dependencies
 * gh-got
