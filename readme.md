@@ -1,17 +1,12 @@
 # rollodeqc-gh-utils
-
 > RoLLodeQc GitHub utilities
 
-
 ## Install
-
 ```
 $ npm install --save rollodeqc-gh-utils
 ```
 
-
 ## Usage
-
 ```js
 const rollodeqcGhUtils = require('rollodeqc-gh-utils');
 
@@ -40,77 +35,37 @@ rollodeqcGhUtils.rateLimit().then((result) => {
 ```
 
 ## API
-
 ### rollodeqcGhUtils.got(url[, obj])
-
 #### url
-
 Type: `string`
 
-Lorem ipsum.
+Fetch json documents from GitHub.
+Like [ghGot](https://github.com/sindresorhus/gh-got)
+with a little sugar added. Only some headers are kept and parsed.
+
+Returns a promise.
 
 #### obj
-
-##### foo
-
 Type: `object`<br>
 Default: `{}`
 
-Lorem ipsum.
+See ghGot. Good for token, etc.
 
-### rollodeqcGhUtils(input, [options])
-### exports.rateLimit = () => exports.got('rate_limit')
+### rollodeqcGhUtils.rateLimit()
 
-#### input
+Fetch current rate limit and return a promise.
 
-Type: `string`
+### rollodeqcGhUtils.links(result)
+#### result
+Type: `object`
 
-Lorem ipsum.
+Parses result.headers.link and returns an object with next, previous and last links.
 
-#### options
+### rollodeqcGhUtils.wait(result)
+#### result
+Type: `object`
 
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
-### rollodeqcGhUtils(input, [options])
-### exports.links = (r) => {
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
-### rollodeqcGhUtils(input, [options])
-### exports.wait = (r) => (r.headers && r.headers['x-ratelimit-reset'])
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
+Return time to wait (in ms) between calls to got() to respect the rate limit.
 
 ## Dependencies
 * gh-got
@@ -119,5 +74,4 @@ Lorem ipsum.
 * lodash.partial
 
 ## License
-
 AGPL-v3 © [Robin Millette](http://robin.millette.info)
