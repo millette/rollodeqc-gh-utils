@@ -63,7 +63,7 @@ exports.rateLimit = () => exports.got('rate_limit')
   })
 
 exports.links = (result) => {
-  if (!result.headers || !result.headers.link || result.headers.link.indexOf(', ') === -1) { return false }
+  if (!result || !result.headers || !result.headers.link || result.headers.link.indexOf(', ') === -1) { return false }
   const links = {}
   result.headers.link.split(', ')
     .map((i) => i.split('; rel=').map((j) => j.slice(1, -1)))
@@ -71,7 +71,7 @@ exports.links = (result) => {
   return links
 }
 
-exports.wait = (result) => (result.headers && result.headers['x-ratelimit-reset'])
+exports.wait = (result) => (result && result.headers && result.headers['x-ratelimit-reset'])
   ? (1000 * result.headers['x-ratelimit-reset'] - Date.now()) /
     result.headers['x-ratelimit-remaining']
   : 2000

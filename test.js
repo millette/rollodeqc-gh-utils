@@ -8,3 +8,29 @@ test('rate limit', async t => {
   t.is(result.headers.statusCode, 200)
   t.is(result.rate.limit, 5000)
 })
+
+test('links', t => {
+  const result = fn.links({ headers: { link: '<https://api.github.com/search/users?q=bob&page=2>; rel="next", <https://api.github.com/search/users?q=bob&page=34>; rel="last"' } })
+  t.is(result.next, 'https://api.github.com/search/users?q=bob&page=2')
+  t.is(result.last, 'https://api.github.com/search/users?q=bob&page=34')
+})
+
+test('links, no next', t => {
+  const result = fn.links()
+  t.false(result && result.next)
+})
+
+test('wait', t => {
+  const result = fn.wait({
+    headers: {
+      'x-ratelimit-reset': Date.now() / 1000 + 60,
+      'x-ratelimit-remaining': 1
+    }
+  })
+  t.is(Math.round(result / 1000), 60)
+})
+
+test('wait, default', t => {
+  const result = fn.wait()
+  t.is(result, 2000)
+})
