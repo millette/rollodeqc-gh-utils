@@ -67,9 +67,22 @@ Return time to wait (in ms) between calls to got() to respect the rate limit.
 #### result
 Type: `object`
 
+### rollodeqcGhUtils.chosenHeaders(headers)
+Lorem ipsum.
+
+#### headers
+Type: `object`
+
+### rollodeqcGhUtils.chosenFields(fields)
+Lorem ipsum.
+
+#### fields
+Type: `object`
+
 ## Dependencies
 * gh-got
 * lodash.pickby
+* lodash.omitby
 * lodash.flow
 * lodash.partial
 

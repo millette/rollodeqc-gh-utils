@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // npm
 const ghGot = require('gh-got')
 const pickBy = require('lodash.pickby')
+const omitBy = require('lodash.omitby')
 const flow = require('lodash.flow')
 const partial = require('lodash.partial')
 
@@ -35,6 +36,8 @@ const asInt = (field, picks) => {
   return picks
 }
 
+const itemsOmitter = (value, key) => key === 'gravatar_id' || key === 'url' || key.slice(-4) === '_url'
+
 const ints = flow(
   partial(asInt, 'x-ratelimit-limit'),
   partial(asInt, 'x-ratelimit-remaining'),
@@ -42,7 +45,7 @@ const ints = flow(
   partial(asInt, 'status')
 )
 
-const chosenHeaders = (headers) => {
+exports.chosenHeaders = (headers) => {
   const picks = pickBy(headers, headersPicker)
   picks.timestamp = new Date(picks.date).getTime()
   picks.timestampDiff = Math.round((picks.timestamp - Date.now()) / 10) / 100
@@ -50,9 +53,11 @@ const chosenHeaders = (headers) => {
   return ints(picks)
 }
 
+exports.chosenFields = (fields) => omitBy(fields, itemsOmitter)
+
 exports.got = (url, obj) => ghGot(url, obj)
   .then((result) => {
-    result.body.headers = chosenHeaders(result.headers)
+    result.body.headers = exports.chosenHeaders(result.headers)
     return result.body
   })
 

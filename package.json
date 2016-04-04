@@ -1,13 +1,13 @@
 {
   "name": "rollodeqc-gh-utils",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "RoLLodeQc GitHub utilities.",
   "license": "AGPL-3.0",
   "repository": "millette/rollodeqc-gh-utils",
   "author": {
     "name": "Robin Millette",
     "email": "robin@millette.info",
-    "url": "robin.millette.info"
+    "url": "http://robin.millette.info"
   },
   "engines": {
     "node": ">=4.3.1"
@@ -27,6 +27,7 @@
   "dependencies": {
     "gh-got": "^2.4.0",
     "lodash.flow": "^3.2.1",
+    "lodash.omitby": "^4.3.0",
     "lodash.partial": "^4.1.2",
     "lodash.pickby": "^4.2.1"
   },
