@@ -29,7 +29,7 @@ const partial = require('lodash.partial')
 
 const headersPicker = (value, key) =>
   !key.indexOf('x-ratelimit-') ||
-  ['link', 'server', 'date', 'status'].indexOf(key) !== -1
+  ['etag', 'link', 'server', 'date', 'status'].indexOf(key) !== -1
 
 const asInt = (field, picks) => {
   picks[field === 'status' ? 'statusCode' : field] = parseInt(picks[field], 10)
