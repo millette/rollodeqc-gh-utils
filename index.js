@@ -61,11 +61,23 @@ exports.got = (url, obj) => ghGot(url, obj)
     return result.body
   })
 
-exports.rateLimit = () => exports.got('rate_limit')
-  .then((result) => {
-    delete result.resources
-    return result
-  })
+exports.rateLimit = (token) => {
+  let obj
+  let oldtoken
+  if (token) {
+    obj = { token: token }
+    // wouldn't need to do this but gh-got overrides the token argument with the env.
+    // https://github.com/sindresorhus/gh-got/blob/master/index.js#L17
+    oldtoken = process.env.GITHUB_TOKEN
+    if (oldtoken) { process.env.GITHUB_TOKEN = '' }
+  }
+  return exports.got('rate_limit', obj)
+    .then((result) => {
+      if (oldtoken) { process.env.GITHUB_TOKEN = oldtoken }
+      delete result.resources.core
+      return result
+    })
+}
 
 exports.links = (result) => {
   if (!result || !result.headers || !result.headers.link || result.headers.link.indexOf(', ') === -1) { return false }
