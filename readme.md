@@ -1,4 +1,4 @@
-# rollodeqc-gh-utils
+# rollodeqc-gh-utils [![Build Status](https://travis-ci.org/millette/rollodeqc-gh-utils.svg?branch=master)](https://travis-ci.org/millette/rollodeqc-gh-utils)
 > RoLLodeQc GitHub utilities.
 
 ## Install
