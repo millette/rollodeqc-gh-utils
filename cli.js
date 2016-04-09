@@ -48,7 +48,7 @@ if (cli.input.length) {
           delete rl.headers
           console.log(JSON.stringify(rl, null, ' '))
         })
-      break;
+      break
 
     default:
       console.log(cli.input[0], 'command is unsupported.')
