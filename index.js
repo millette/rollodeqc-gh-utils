@@ -36,7 +36,7 @@ const asInt = (field, picks) => {
   return picks
 }
 
-const itemsOmitter = (value, key) => key === 'gravatar_id' || key === 'url' || key.slice(-4) === '_url'
+const itemsOmitter = (value, key) => !value || key === 'gravatar_id' || key === 'url' || key.slice(-4) === '_url'
 
 const ints = flow(
   partial(asInt, 'x-ratelimit-limit'),
@@ -63,17 +63,9 @@ exports.got = (url, obj) => ghGot(url, obj)
 
 exports.rateLimit = (token) => {
   let obj
-  let oldtoken
-  if (token) {
-    obj = { token: token }
-    // wouldn't need to do this but gh-got overrides the token argument with the env.
-    // https://github.com/sindresorhus/gh-got/blob/master/index.js#L17
-    oldtoken = process.env.GITHUB_TOKEN
-    if (oldtoken) { process.env.GITHUB_TOKEN = '' }
-  }
+  if (token) { obj = { token: token } }
   return exports.got('rate_limit', obj)
     .then((result) => {
-      if (oldtoken) { process.env.GITHUB_TOKEN = oldtoken }
       delete result.resources.core
       return result
     })
