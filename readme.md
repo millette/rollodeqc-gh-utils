@@ -1,4 +1,4 @@
-# rollodeqc-gh-utils [![Build Status](https://travis-ci.org/millette/rollodeqc-gh-utils.svg?branch=master)](https://travis-ci.org/millette/rollodeqc-gh-utils)
+# rollodeqc-gh-utils [![Build Status](https://travis-ci.org/millette/rollodeqc-gh-utils.svg?branch=master)](https://travis-ci.org/millette/rollodeqc-gh-utils) [![Coverage Status](https://coveralls.io/repos/github/millette/rollodeqc-gh-utils/badge.svg?branch=master)](https://coveralls.io/github/millette/rollodeqc-gh-utils?branch=master)
 > RoLLodeQc GitHub utilities.
 
 ## Install
