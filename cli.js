@@ -76,7 +76,7 @@ if (cli.input.length) {
           'x-ratelimit-limit': 5000,
           'x-ratelimit-remaining': 4229,
           'x-ratelimit-reset': 1460192786,
-          'etag': 'W/\"8c61e90bbe751b47234c45de67980e98\"',
+          'etag': 'W/"8c61e90bbe751b47234c45de67980e98"',
           'timestamp': 1460192406,
           'timestampDiff': 3.52,
           'statusCode': 200
