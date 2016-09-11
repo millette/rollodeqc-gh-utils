@@ -1,4 +1,3 @@
-/*eslint arrow-parens: [2, "as-needed"]*/
 'use strict'
 import test from 'ava'
 import fn from './'
@@ -35,11 +34,13 @@ test('wait, default', t => {
   t.is(result, 2000)
 })
 
+/*
 // FIXME: need a github token (secret...) to actually test this part
 test.skip('rate limit with token', async t => {
   const result = await fn.rateLimit('fefifo')
   t.is(result.headers.statusCode, 200)
   t.is(result.rate.limit, 5000)
 })
+*/
 
 test('rate limit, bad token', async t => await t.throws(fn.rateLimit('fefifo'), 'Response code 401 (Unauthorized)'))
