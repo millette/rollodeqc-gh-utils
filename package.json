@@ -37,9 +37,9 @@
     "meow": "^3.7.0"
   },
   "devDependencies": {
-    "ava": "^0.18.0",
+    "ava": "^0.18.1",
     "babel-eslint": "^7.1.1",
-    "coveralls": "^2.11.15",
+    "coveralls": "^2.11.16",
     "nyc": "^10.1.2",
     "standard": "^8.6.0"
   },
