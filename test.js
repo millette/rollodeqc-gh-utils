@@ -22,7 +22,7 @@ test('links, no next', t => {
 test('wait', t => {
   const result = fn.wait({
     headers: {
-      'x-ratelimit-reset': Date.now() / 1000 + 60,
+      'x-ratelimit-reset': (Date.now() / 1000) + 60,
       'x-ratelimit-remaining': 1
     }
   })

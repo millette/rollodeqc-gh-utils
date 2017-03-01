@@ -81,6 +81,6 @@ exports.links = (result) => {
 }
 
 exports.wait = (result) => (result && result.headers && result.headers['x-ratelimit-reset'])
-  ? (1000 * result.headers['x-ratelimit-reset'] - Date.now()) /
+  ? ((1000 * result.headers['x-ratelimit-reset']) - Date.now()) /
     result.headers['x-ratelimit-remaining']
   : 2000
