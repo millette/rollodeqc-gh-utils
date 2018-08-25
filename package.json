@@ -35,7 +35,7 @@
     "lodash.omitby": "^4.6.0",
     "lodash.partial": "^4.2.1",
     "lodash.pickby": "^4.6.0",
-    "meow": "^3.7.0"
+    "meow": "^5.0.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",

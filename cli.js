@@ -24,19 +24,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const utils = require('./')
 const meow = require('meow')
 
-const cli = meow([
-  'Usage',
-  '  $ ok <cmd>',
-  '',
-  'Options',
-  '  --token  Token GitHub. [Default: false]',
-  '',
-  'Examples',
-  '  $ ok',
-  '  unicorns & rainbows',
-  '  $ ok ponies',
-  '  ponies & rainbows'
-])
+const cli = meow(`
+Usage
+  $ ok <cmd>
+
+Options
+  --token  Token GitHub. [Default: false]
+
+Examples
+  $ ok
+  unicorns & rainbows
+  $ ok ponies
+  ponies & rainbows
+`)
 
 if (cli.input.length) {
   switch (cli.input[0].toLowerCase()) {
