@@ -11,7 +11,7 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "scripts": {
     "lint": "standard",
@@ -39,12 +39,8 @@
   },
   "devDependencies": {
     "ava": "^0.19.1",
-    "babel-eslint": "^7.2.3",
     "coveralls": "^2.13.1",
     "nyc": "^11.0.2",
-    "standard": "^10.0.2"
-  },
-  "standard": {
-    "parser": "babel-eslint"
+    "standard": "^11.0.1"
   }
 }
