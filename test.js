@@ -43,4 +43,4 @@ test.skip('rate limit with token', async t => {
 })
 */
 
-test('rate limit, bad token', async t => t.throws(fn.rateLimit('fefifo'), 'Response code 401 (Unauthorized)'))
+test('rate limit, bad token', async t => t.throws(fn.rateLimit('fefifo'), 'Bad credentials (401)'))
