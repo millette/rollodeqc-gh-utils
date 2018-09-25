@@ -11,7 +11,7 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">=8"
+    "node": ">=8.12.0"
   },
   "scripts": {
     "lint": "standard",
@@ -30,7 +30,7 @@
     "cli"
   ],
   "dependencies": {
-    "gh-got": "^8.0.0",
+    "gh-got": "^8.0.1",
     "lodash.flow": "^3.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.partial": "^4.2.1",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "coveralls": "^3.0.2",
-    "nyc": "^12.0.2",
-    "standard": "^11.0.1"
+    "nyc": "^13.0.1",
+    "standard": "^12.0.1"
   }
 }
