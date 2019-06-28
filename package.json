@@ -30,7 +30,7 @@
     "cli"
   ],
   "dependencies": {
-    "gh-got": "^8.0.1",
+    "gh-got": "^8.1.0",
     "lodash.flow": "^3.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.partial": "^4.2.1",
