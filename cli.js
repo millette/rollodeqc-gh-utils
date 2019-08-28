@@ -52,7 +52,7 @@ if (cli.input.length) {
       break
 
     case 'test':
-      const obj1 = {
+      var obj1 = {
         login: 'ferd',
         id: 111141,
         type: 'User',
@@ -83,7 +83,7 @@ if (cli.input.length) {
           statusCode: 200
         }
       }
-      const obj2 = utils.chosenFields(obj1)
+      var obj2 = utils.chosenFields(obj1)
       console.log('obj', obj2)
       break
 
