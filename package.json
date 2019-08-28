@@ -38,8 +38,8 @@
     "meow": "^5.0.0"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
-    "coveralls": "^3.0.4",
+    "ava": "^2.3.0",
+    "coveralls": "^3.0.6",
     "nyc": "^14.1.1",
     "standard": "^14.0.2"
   }
